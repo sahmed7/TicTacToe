@@ -19,10 +19,12 @@ body {
 header {
     text-align: center;
     padding: 50px;
-    font-size: 5rem;
+    font-size: 4rem;
     color: antiquewhite;
 }
 .ticTacContainer {
+    position: absolute;
+    right: 400px;
     background: #2d2e2e;
     width: 800px;
     margin: 20px auto;
