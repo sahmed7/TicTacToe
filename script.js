@@ -70,6 +70,8 @@ function placeUserSelection(event) {
     if(startGameToggle){
         playerOneSymbol = player1Choice.value
         playerTwoSymbol = player2Choice.value
+    } else if(!startGameToggle){
+        startGameButton.style.display = 'none'
     }
     if (playerTurn) {  // could've maybe used ternary here (if statement is true) ? "do this" : "else do this", but this is cleaner
         event.target.innerText = playerOneSymbol
