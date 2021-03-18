@@ -29,9 +29,9 @@ function checkWinCondition() {
                 if(winConditions[winConditionsKey][i] == 'X') {
                     playerOneCount++
                     console.log(`Player One Count: ${playerOneCount}`)
-                } else {
+                } else if(winConditions[winConditionsKey][i] == 'O'){
                     playerTwoCount++
-                    console.log(`Player One Count: ${playerTwoCount}`)
+                    console.log(`Player Two Count: ${playerTwoCount}`)
                 }
                 if(playerOneCount == 3) {
                     console.log(`Winner in: ${winConditionsKey} , ${winConditions[winConditionsKey]}`, playerOneCount)
@@ -55,14 +55,15 @@ function placeUserSelection(event) {
     if (playerTurn) {  // could've maybe used ternary here (if statement is true) ? "do this" : "else do this", but this is cleaner
         event.target.innerText = playerOneSymbol
         //console.log(event.target.innerText)
-        //console.log(winConditions.topRow)
         addPlayerChoiceToWinConditions(event.target.id, playerOneSymbol)
+        console.log(winConditions)
         checkWinCondition()
         playerTurn = false
     } else {
         event.target.innerText = playerTwoSymbol
         addPlayerChoiceToWinConditions(event.target.id, playerTwoSymbol)
         console.log(winConditions)
+        checkWinCondition()
         //console.log(event.target.innerText)
         playerTurn = true
     }
