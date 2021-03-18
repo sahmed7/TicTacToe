@@ -10,14 +10,25 @@
 </head>
 <body>
         <header>Tic Tac Toe</header>
-        <div class = "infoHubContainer">BLAH
-            <div class = "playerSymbolCenter"></div>
+        <div class = "infoHubContainer">
+            <div class = "playerSymbolCenter">
                 <label for = "player1">Player 1: </label>
                     <input type="text" name = "Player 1" id = "player1" placeholder="X"/>
                 <label for = "player2">Player 2: </label>
                     <input type="text" name = "Player 2" id = "player2" placeholder="O"/>
             </div>
-        <div class = "playerTurnCenter">Player X's turn</div>
+            <div class = "playerTurnCenter">Player X's turn
+            </div>
+            <div>
+                <input type="submit" name="startGame" id="startGame" value="Start Game" />
+            </div>
+        </div>
+
+        <div class = "winAndReset">
+            <div id="whoWon"></div>
+            <div id="reset">
+                <input type="submit" name="resetBtn" id="resetBtn" value="Reset Game" />
+            </div>
         </div>
                     <div class="ticTacContainer">
                         <div class="square" id="one"></div>
@@ -30,12 +41,6 @@
                         <div class="square" id="eight"></div>
                         <div class="square" id="nine"></div>
                     </div>
-        <div class = "winAndReset">
-            <div id="whoWon"></div>
-            <div id="reset">
-                <input type="submit" name="resetBtn" id="resetBtn" value="Reset Game" />
-            </div>
-        </div>
     <script src="script.js"></script>
 </body>
 </html>

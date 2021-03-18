@@ -3,8 +3,12 @@ console.log('I\'ve been properly linked');
 let ticTacGrid = document.querySelector('.ticTacContainer')
 let squares = ticTacGrid.querySelectorAll('.square')
 let playerTurn = true  //if true, Player 1 turn, else Player 2 turn
+let startGameToggle = false
+let startGameButton = document.querySelector('#startGame')
 let resetButton = document.querySelector('#resetBtn')
 let whoWonDisplay = document.querySelector('#whoWon')
+let player1Choice = document.querySelector('#player1')
+let player2Choice = document.querySelector('#player2')
 
 let winConditions = {
     topRow: [],
@@ -27,10 +31,10 @@ function checkWinCondition() {
     for (let winConditionsKey in winConditions) {
         if(winConditions[winConditionsKey].length==3) {
             for(let i=0; i<3; i++) {
-                if(winConditions[winConditionsKey][i] == 'X') {
+                if(winConditions[winConditionsKey][i] == playerOneSymbol) {
                     playerOneCount++
                     console.log(`Player One Count: ${playerOneCount}`)
-                } else if(winConditions[winConditionsKey][i] == 'O'){
+                } else if(winConditions[winConditionsKey][i] == playerTwoSymbol){
                     playerTwoCount++
                     console.log(`Player Two Count: ${playerTwoCount}`)
                 }
@@ -61,6 +65,10 @@ function checkWinCondition() {
 }
 
 function placeUserSelection(event) {
+    if(startGameToggle){
+        playerOneSymbol = player1Choice.value
+        playerTwoSymbol = player2Choice.value
+    }
     if (playerTurn) {  // could've maybe used ternary here (if statement is true) ? "do this" : "else do this", but this is cleaner
         event.target.innerText = playerOneSymbol
         //console.log(event.target.innerText)
@@ -135,12 +143,13 @@ function addPlayerChoiceToWinConditions(idOfDiv, symbol) {
 
 }
 
-
-squares.forEach((square) => {
-    square.addEventListener(('click'), placeUserSelection, {once: true});
-})
-
-resetButton.addEventListener("click", () => location.reload());
+// function startGame() {
+    squares.forEach((square) => {
+        square.addEventListener(('click'), placeUserSelection, {once: true});
+    })
+// }
+startGameButton.addEventListener('click', () => startGameToggle=true)
+resetButton.addEventListener("click", () => location.reload())
 
 
 
