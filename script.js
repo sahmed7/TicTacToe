@@ -44,18 +44,20 @@ function checkWinCondition() {
                     console.log(`Winner in: ${winConditionsKey} , ${winConditions[winConditionsKey]}`, playerOneCount)
                     removeRemainingListeners()
                     playerOneCount = 1
-                    whoWonDisplay.innerText = `Player ${playerOneCount} Wins!`
+                    whoWonDisplay.innerText = `Player ${playerOneSymbol} Wins!`
                     whoWonDisplay.style.display = 'block'
                     resetButton.style.display = 'block'
+                    startGameButton.style.display = 'none'
                     return
                 }
                 if(playerTwoCount == 3) {
                     console.log(`Winner in: ${winConditionsKey} , ${winConditions[winConditionsKey]}`, playerTwoCount)
                     removeRemainingListeners()
                     playerTwoCount = 2
-                    whoWonDisplay.innerText = `Player ${playerTwoCount} Wins!`
+                    whoWonDisplay.innerText = `Player ${playerTwoSymbol} Wins!`
                     whoWonDisplay.style.display = 'block'
                     resetButton.style.display = 'block'
+                    startGameButton.style.display = 'none'
                     return
                 }
             }
@@ -67,10 +69,11 @@ function checkWinCondition() {
 }
 
 function placeUserSelection(event) {
-    if(startGameToggle){
-        playerOneSymbol = player1Choice.value
-        playerTwoSymbol = player2Choice.value
-    } else if(!startGameToggle){
+    // if(startGameToggle){
+    //     playerOneSymbol = player1Choice.value
+    //     playerTwoSymbol = player2Choice.value
+    //} else
+        if(!startGameToggle){
         startGameButton.style.display = 'none'
     }
     if (playerTurn) {  // could've maybe used ternary here (if statement is true) ? "do this" : "else do this", but this is cleaner
@@ -79,12 +82,14 @@ function placeUserSelection(event) {
         addPlayerChoiceToWinConditions(event.target.id, playerOneSymbol)
         console.log(winConditions)
         checkWinCondition()
+        whosTurnIsIt.innerText = `Player ${playerTwoSymbol}'s turn`
         playerTurn = false
     } else {
         event.target.innerText = playerTwoSymbol
         addPlayerChoiceToWinConditions(event.target.id, playerTwoSymbol)
         console.log(winConditions)
         checkWinCondition()
+        whosTurnIsIt.innerText = `Player ${playerOneSymbol}'s turn`
         //console.log(event.target.innerText)
         playerTurn = true
     }
@@ -157,6 +162,9 @@ startGameButton.addEventListener('click', () => {
     if(player1Choice.value === "" || player2Choice.value === "") {
         cannotStartGameMessage.innerText = 'Cannot start game until both players enter a character above'
     } else {
+        playerOneSymbol = player1Choice.value
+        playerTwoSymbol = player2Choice.value
+        whosTurnIsIt.innerText = `Player ${playerOneSymbol}'s turn`
         startGameToggle=true
     }
 })
