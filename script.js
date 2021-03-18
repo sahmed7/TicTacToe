@@ -3,7 +3,8 @@ console.log('I\'ve been properly linked');
 let ticTacGrid = document.querySelector('.ticTacContainer')
 let squares = ticTacGrid.querySelectorAll('.square')
 let playerTurn = true  //if true, Player 1 turn, else Player 2 turn
-let boardFilled = []
+let resetButton = document.querySelector('#resetBtn')
+let whoWonDisplay = document.querySelector('#whoWon')
 
 let winConditions = {
     topRow: [],
@@ -36,11 +37,19 @@ function checkWinCondition() {
                 if(playerOneCount == 3) {
                     console.log(`Winner in: ${winConditionsKey} , ${winConditions[winConditionsKey]}`, playerOneCount)
                     removeRemainingListeners()
+                    playerOneCount = 1
+                    whoWonDisplay.innerText = `Player ${playerOneCount} Wins!`
+                    whoWonDisplay.style.display = 'block'
+                    resetButton.style.display = 'block'
                     return
                 }
                 if(playerTwoCount == 3) {
                     console.log(`Winner in: ${winConditionsKey} , ${winConditions[winConditionsKey]}`, playerTwoCount)
                     removeRemainingListeners()
+                    playerTwoCount = 2
+                    whoWonDisplay.innerText = `Player ${playerTwoCount} Wins!`
+                    whoWonDisplay.style.display = 'block'
+                    resetButton.style.display = 'block'
                     return
                 }
             }
@@ -131,6 +140,7 @@ squares.forEach((square) => {
     square.addEventListener(('click'), placeUserSelection, {once: true});
 })
 
+resetButton.addEventListener("click", () => location.reload());
 
 
 

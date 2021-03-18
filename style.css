@@ -35,6 +35,47 @@ header {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.infoHubContainer {
+    position: absolute;
+    left: 20px;
+    background-color: red;
+    height: 200px;
+    width: 200px;
+}
+.playerTurnCenter {
+    background-color: blue;
+    height: 50px;
+    width: 50px;
+}
+.playerSymbolCenter {
+    background-color: yellow;
+    height: 50px;
+    width: 50px;
+}
+.winAndReset {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    background-color: red;
+    height: 200px;
+    width: 200px;
+}
+#whoWon {
+    font-size: 2rem;
+    display: none;
+}
+#resetBtn {
+    font-size: 2rem;
+    display: none;
+}
+
+.square {
+    font-size: 4rem;
+}
+
 #one {
     grid-row: 1;
     grid-column: 1;
