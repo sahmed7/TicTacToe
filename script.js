@@ -7,6 +7,8 @@ let startGameToggle = false
 let startGameButton = document.querySelector('#startGame')
 let resetButton = document.querySelector('#resetBtn')
 let whoWonDisplay = document.querySelector('#whoWon')
+let cannotStartGameMessage = document.querySelector('#cannotStartMessage')
+let whosTurnIsIt = document.querySelector('.playerTurnCenter')
 let player1Choice = document.querySelector('#player1')
 let player2Choice = document.querySelector('#player2')
 
@@ -148,7 +150,14 @@ function addPlayerChoiceToWinConditions(idOfDiv, symbol) {
         square.addEventListener(('click'), placeUserSelection, {once: true});
     })
 // }
-startGameButton.addEventListener('click', () => startGameToggle=true)
+startGameButton.addEventListener('click', () => {
+    console.log(cannotStartGameMessage)
+    if(player1Choice.value === "" || player2Choice.value === "") {
+        cannotStartGameMessage.innerText = 'Cannot start game until both players enter a character above'
+    } else {
+        startGameToggle=true
+    }
+})
 resetButton.addEventListener("click", () => location.reload())
 
 

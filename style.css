@@ -62,6 +62,14 @@ header {
     font-size: 2rem;
     /*align-items: center;*/
     color: antiquewhite;
+}
+#cannotStartMessage {
+    background-color: #2d2e2e;
+    height: 50px;
+    width: 250px;
+    font-size: 2rem;
+    /*align-items: center;*/
+    color: #f53333;
 
 }
 label {
