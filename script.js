@@ -22,10 +22,11 @@ let winConditions = {
     leftDiagonal: [],
     rightDiagonal: []
 }
-let playerOneCount = 0
-let playerTwoCount = 0
+let playerOneScore = 0
+let playerTwoScore = 0
 let playerOneSymbol = 'X'
 let playerTwoSymbol = 'O'
+let clickCounter = 0
 console.log(ticTacGrid)
 console.log(squares)
 
@@ -34,27 +35,33 @@ function checkWinCondition() {
         if(winConditions[winConditionsKey].length==3) {
             for(let i=0; i<3; i++) {
                 if(winConditions[winConditionsKey][i] == playerOneSymbol) {
-                    playerOneCount++
-                    console.log(`Player One Count: ${playerOneCount}`)
+                    playerOneScore++
+                    console.log(`Player One Count: ${playerOneScore}`)
                 } else if(winConditions[winConditionsKey][i] == playerTwoSymbol){
-                    playerTwoCount++
-                    console.log(`Player Two Count: ${playerTwoCount}`)
+                    playerTwoScore++
+                    console.log(`Player Two Count: ${playerTwoScore}`)
                 }
-                if(playerOneCount == 3) {
-                    console.log(`Winner in: ${winConditionsKey} , ${winConditions[winConditionsKey]}`, playerOneCount)
+                if(playerOneScore === 3) {
+                    console.log(`Winner in: ${winConditionsKey} , ${winConditions[winConditionsKey]}`, playerOneScore)
                     removeRemainingListeners()
-                    playerOneCount = 1
                     whoWonDisplay.innerText = `Player ${playerOneSymbol} Wins!`
                     whoWonDisplay.style.display = 'block'
                     resetButton.style.display = 'block'
                     startGameButton.style.display = 'none'
                     return
                 }
-                if(playerTwoCount == 3) {
-                    console.log(`Winner in: ${winConditionsKey} , ${winConditions[winConditionsKey]}`, playerTwoCount)
+                if(playerTwoScore === 3) {
+                    console.log(`Winner in: ${winConditionsKey} , ${winConditions[winConditionsKey]}`, playerTwoScore)
                     removeRemainingListeners()
-                    playerTwoCount = 2
                     whoWonDisplay.innerText = `Player ${playerTwoSymbol} Wins!`
+                    whoWonDisplay.style.display = 'block'
+                    resetButton.style.display = 'block'
+                    startGameButton.style.display = 'none'
+                    return
+                }
+                if(clickCounter===9) {
+                    console.log(clickCounter)
+                    whoWonDisplay.innerText = `It's a Draw!`
                     whoWonDisplay.style.display = 'block'
                     resetButton.style.display = 'block'
                     startGameButton.style.display = 'none'
@@ -62,25 +69,21 @@ function checkWinCondition() {
                 }
             }
             console.log("No winner yet...")
-            playerOneCount=0
-            playerTwoCount=0
+            playerOneScore=0
+            playerTwoScore=0
         }
     }
 }
 
 function placeUserSelection(event) {
-    // if(startGameToggle){
-    //     playerOneSymbol = player1Choice.value
-    //     playerTwoSymbol = player2Choice.value
-    //} else
-        if(!startGameToggle){
+    if(!startGameToggle){
         startGameButton.style.display = 'none'
     }
     if (playerTurn) {  // could've maybe used ternary here (if statement is true) ? "do this" : "else do this", but this is cleaner
         event.target.innerText = playerOneSymbol
-        //console.log(event.target.innerText)
         addPlayerChoiceToWinConditions(event.target.id, playerOneSymbol)
         console.log(winConditions)
+        clickCounter++
         checkWinCondition()
         whosTurnIsIt.innerText = `Player ${playerTwoSymbol}'s turn`
         playerTurn = false
@@ -88,6 +91,7 @@ function placeUserSelection(event) {
         event.target.innerText = playerTwoSymbol
         addPlayerChoiceToWinConditions(event.target.id, playerTwoSymbol)
         console.log(winConditions)
+        clickCounter++
         checkWinCondition()
         whosTurnIsIt.innerText = `Player ${playerOneSymbol}'s turn`
         //console.log(event.target.innerText)
