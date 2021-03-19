@@ -13,7 +13,8 @@
 /*}*/
 
 body {
-    background: #2d2e2e;
+    /*background: #2d2e2e;*/
+    background-image: url("https://blenderartists.org/uploads/default/original/4X/7/e/2/7e2d7bea4ac21388c4a96e1371f375c4ce00094b.jpg");
 }
 
 header {
@@ -25,7 +26,7 @@ header {
 .ticTacContainer {
     position: absolute;
     right: 400px;
-    background: #2d2e2e;
+    /*background: #2d2e2e;*/
     width: 800px;
     margin: 20px auto;
     height: 800px;
@@ -42,7 +43,7 @@ header {
     flex-direction: column;
     position: absolute;
     left: 20px;
-    background-color: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     height: 400px;
     width: 300px;
 }
@@ -51,12 +52,12 @@ header {
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    background-color: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     height: 200px;
     width: 300px;
 }
 .playerTurnCenter {
-    background-color: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     height: 50px;
     width: 250px;
     font-size: 2rem;
@@ -64,7 +65,7 @@ header {
     color: antiquewhite;
 }
 #cannotStartMessage {
-    background-color: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     height: 50px;
     width: 250px;
     font-size: 2rem;
@@ -90,7 +91,7 @@ input {
     flex-direction: column;
     position: absolute;
     right: 20px;
-    background-color: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     height: 200px;
     width: 200px;
 }
@@ -116,7 +117,7 @@ input {
 #one {
     grid-row: 1;
     grid-column: 1;
-    background: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     max-width:100%;
     max-height:100%;
     padding: 110px;
@@ -131,7 +132,7 @@ input {
 #two {
     grid-row: 1;
     grid-column: 2;
-    background: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     color: #FFFFFF;
     padding: 110px;
     text-align: center;
@@ -143,7 +144,7 @@ input {
 #three {
     grid-row: 1;
     grid-column: 3;
-    background: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     color: #FFFFFF;
     padding: 110px;
     text-align: center;
@@ -154,7 +155,7 @@ input {
 #four {
     grid-row: 2;
     grid-column: 1;
-    background: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     color: #FFFFFF;
     padding: 110px;
     text-align: center;
@@ -170,7 +171,7 @@ input {
 #five {
     grid-row: 2;
     grid-column: 2;
-    background: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     color: #FFFFFF;
     padding: 110px;
     text-align: center;
@@ -182,7 +183,7 @@ input {
 #six {
     grid-row: 2;
     grid-column: 3;
-    background: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     color: #FFFFFF;
     padding: 110px;
     text-align: center;
@@ -193,7 +194,7 @@ input {
 #seven {
     grid-row: 3;
     grid-column: 1;
-    background: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     color: #FFFFFF;
     padding: 110px;
     text-align: center;
@@ -204,7 +205,7 @@ input {
 #eight {
     grid-row: 3;
     grid-column: 2;
-    background: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     color: #FFFFFF;
     padding: 110px;
     text-align: center;
@@ -215,7 +216,7 @@ input {
 #nine {
     grid-row: 3;
     grid-column: 3;
-    background: #2d2e2e;
+    /*background-color: #2d2e2e;*/
     color: #FFFFFF;
     padding: 110px;
     text-align: center;

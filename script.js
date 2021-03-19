@@ -29,7 +29,17 @@ let playerTwoScore = 0      //used to increment player 2 value throughout winCon
 let playerOneSymbol = 'X'   //holds player 1's entered character, if nothing entered, default to X
 let playerTwoSymbol = 'O'   //holds player 2's entered character, if nothing entered, default to O
 let clickCounter = 0        //used for determining Cats game
+let p1Audio = new Audio('porta.ogg');
+let p2Audio = new Audio('laserpew.ogg');
+let startGameAlertAudio = new Audio('alarm.ogg')
+let winAudio = new Audio('win.wav')
+let tieAudio = new Audio('Tie.wav')
+//let introAudio = new Audio('intro.wav')
 
+// window.onload = (event) => {  //couldn't get this to work due to "play failed because user didn't interact with document first
+//     introAudio.play()
+//     console.log('page is fully loaded');
+// };
 
 /* Function below is the Win Conditions function that loops the winConditions object after user move
 * to see if someone won - and upon winning condition being reached, it does:
@@ -54,6 +64,7 @@ function checkWinCondition() {
                     whoWonDisplay.style.display = 'block'
                     //resetButton.style.display = 'block'
                     startGameButton.style.display = 'none'
+                    winAudio.play()
                     return
                 }
                 if(playerTwoScore === 3) {
@@ -62,6 +73,7 @@ function checkWinCondition() {
                     whoWonDisplay.style.display = 'block'
                     //resetButton.style.display = 'block'
                     startGameButton.style.display = 'none'
+                    winAudio.play()
                     return
                 }
                 if(clickCounter===9) {
@@ -69,6 +81,7 @@ function checkWinCondition() {
                     whoWonDisplay.style.display = 'block'
                     resetButton.style.display = 'block'
                     startGameButton.style.display = 'none'
+                    tieAudio.play()
                     return
                 }
             }
@@ -79,6 +92,7 @@ function checkWinCondition() {
 }
 /* Function below is primary eventHandler. Objectives outlined below:
 - Places the player's value into the square
+- Plays an audio for each respective player
 - Calls function to add the value to the winCondition object
 - Increments the clickCounter used for Cats game check
 - Calls checkWinCondition after every move
@@ -94,6 +108,10 @@ function placeUserSelection(event) {
         addPlayerChoiceToWinConditions(event.target.id, playerOneSymbol)
         clickCounter++
         checkWinCondition()
+        if(playerOneScore===3 || clickCounter===9) {
+        } else {
+            p1Audio.play();
+        }
         whosTurnIsIt.innerText = `Player ${playerTwoSymbol}'s turn`
         playerTurn = false
     } else {
@@ -101,6 +119,10 @@ function placeUserSelection(event) {
         addPlayerChoiceToWinConditions(event.target.id, playerTwoSymbol)
         clickCounter++
         checkWinCondition()
+        if(playerTwoScore===3 || clickCounter===9) {
+        } else {
+            p2Audio.play();
+        }
         whosTurnIsIt.innerText = `Player ${playerOneSymbol}'s turn`
         playerTurn = true
     }
@@ -186,6 +208,7 @@ Also checks if user tried starting game without entering any values in fields
 startGameButton.addEventListener('click', () => {
     console.log(cannotStartGameMessage)
     if(player1Choice.value === "" || player2Choice.value === "") {
+        startGameAlertAudio.play()
         cannotStartGameMessage.innerText = 'Cannot start game until both players enter a character above'
     } else {
         playerOneSymbol = player1Choice.value
