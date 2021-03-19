@@ -2,8 +2,7 @@
 ---
 
 ##Description:##
-This is a tic-tac-toe game playable by 2 people on the same browser/device.
-Players take turns placing their character in a 3x3 square grid until a player gets 3
+This is a tic-tac-toe game playable by 2 people on the same browser/device. Players take turns placing their character in a 3x3 square grid until a player gets 3
 of their pieces in a row horizontally, vertically, or diagonally.
 ---
 
