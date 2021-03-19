@@ -162,6 +162,8 @@ function mouseLeave(event) {
 function removeRemainingListeners() {
     squares.forEach((square) => {
         square.removeEventListener('click', placeUserSelection)
+        square.removeEventListener(('mouseenter'), mouseEnter);
+        square.removeEventListener(('mouseleave'), mouseLeave);
     })
 }
 
@@ -250,6 +252,8 @@ startGameButton.addEventListener('click', () => {
         playerTwoSymbol = player2Choice.value
         whosTurnIsIt.innerText = `Player ${playerOneSymbol}'s turn`
         startGameToggle=true
+        cannotStartGameMessage.innerText = ''
+        startGameButton.style.display = 'none'
     }
 })
 
