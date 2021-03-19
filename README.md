@@ -37,4 +37,8 @@ After the game functionality was completed, I went back to the html and css to b
   1. Animations for when user selects a square
   2. A game history log displayed at the side
   3. Mobile platform capability
-  4. Multiplayer option across other devices  
+  4. Multiplayer option across other devices
+    
+---
+Link To Game:
+[Shaheer's Tic Tac Toe Game](https://sahmed7.github.io/TicTacToe/)
