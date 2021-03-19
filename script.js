@@ -113,6 +113,8 @@ function placeUserSelection(event) {
             p1Audio.play();
         }
         whosTurnIsIt.innerText = `Player ${playerTwoSymbol}'s turn`
+        event.target.removeEventListener(('mouseenter'), mouseEnter)
+        event.target.removeEventListener(('mouseleave'), mouseLeave)
         playerTurn = false
     } else {
         event.target.innerText = playerTwoSymbol
@@ -124,8 +126,20 @@ function placeUserSelection(event) {
             p2Audio.play();
         }
         whosTurnIsIt.innerText = `Player ${playerOneSymbol}'s turn`
+        event.target.removeEventListener(('mouseenter'), mouseEnter)
+        event.target.removeEventListener(('mouseleave'), mouseLeave)
         playerTurn = true
     }
+}
+function mouseEnter(event) {
+    if(playerTurn) {
+        event.target.innerHTML = playerOneSymbol
+    } else {
+        event.target.innerHTML = playerTwoSymbol
+    }
+}
+function mouseLeave(event) {
+    event.target.innerHTML = ''
 }
 /* Function below is used in the checkWinCondition function for when winning condition is reached
 * pretty quickly. Have to prevent user from clicker squares after game is over
@@ -199,8 +213,14 @@ function addPlayerChoiceToWinConditions(idOfDiv, symbol) {
     squares.forEach((square) => {
         square.addEventListener(('click'), placeUserSelection, {once: true});
     })
+    squares.forEach((square) => {
+        square.addEventListener(('mouseenter'), mouseEnter);
+    })
+    squares.forEach((square) => {
+        square.addEventListener(('mouseleave'), mouseLeave);
+    })
 // }
-
+//#faebd7;
 /*Code below adds eventlistener to startGame button which sets the player's entered character to variables used
 throughout code, starts the display of whose turn it is and toggles the option which is later used to hide button
 Also checks if user tried starting game without entering any values in fields
