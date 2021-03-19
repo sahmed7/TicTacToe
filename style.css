@@ -25,7 +25,7 @@ header {
 }
 .ticTacContainer {
     position: absolute;
-    right: 400px;
+    right: 300px;
     /*background: #2d2e2e;*/
     width: 800px;
     margin: 20px auto;
