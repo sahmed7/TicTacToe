@@ -1,8 +1,8 @@
 **PROJECT:** Tic Tac Toe
 ---
 
-**Description:** 
-This is a tic tac toe game playable by 2 people on the same browser/device.
+##Description:##
+This is a tic-tac-toe game playable by 2 people on the same browser/device.
 Players take turns placing their character in a 3x3 square grid until a player gets 3
 of their pieces in a row horizontally, vertically, or diagonally.
 ---
@@ -22,10 +22,11 @@ WIREFRAME
 ---
 
 **Approach:**
+
 I used a Wireframe first to flesh out some initial design ideas. Then I started with HTML
 and built the main grid for the game. Then I used javascript to access the squares and add EventListeners
 to respond to user clicks.I prioritized game functionality first and left visuals for later.
-I knew the win conditions was going to be the toughest part so I tackled that first. I thought if
+I knew the win conditions was going to be the toughest part, so I tackled that first. I thought if
 I could get the win conditions working, then I can just pass in the user choices.
 After the game functionality was completed, I went back to the html and css to brush up the visuals.
 ---
