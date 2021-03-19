@@ -76,15 +76,15 @@ function checkWinCondition() {
                     winAudio.play()
                     return
                 }
-                if(clickCounter===9) {
-                    whoWonDisplay.innerText = `It's a Tie!`
-                    whoWonDisplay.style.display = 'block'
-                    resetButton.style.display = 'block'
-                    startGameButton.style.display = 'none'
-                    tieAudio.play()
-                    return
+                // if(clickCounter===9 && playerOneScore != 3 && playerTwoScore != 3) {
+                //     whoWonDisplay.innerText = `It's a Tie!`
+                //     whoWonDisplay.style.display = 'block'
+                //     resetButton.style.display = 'block'
+                //     startGameButton.style.display = 'none'
+                //     tieAudio.play()
+                //     return
+                // }
                 }
-            }
             playerOneScore=0
             playerTwoScore=0
         }
@@ -112,6 +112,13 @@ function placeUserSelection(event) {
         } else {
             p1Audio.play();
         }
+        if(clickCounter===9 && playerOneScore != 3) {
+            whoWonDisplay.innerText = `It's a Tie!`
+            whoWonDisplay.style.display = 'block'
+            resetButton.style.display = 'block'
+            startGameButton.style.display = 'none'
+            tieAudio.play()
+        }
         whosTurnIsIt.innerText = `Player ${playerTwoSymbol}'s turn`
         event.target.removeEventListener(('mouseenter'), mouseEnter)
         event.target.removeEventListener(('mouseleave'), mouseLeave)
@@ -124,6 +131,14 @@ function placeUserSelection(event) {
         if(playerTwoScore===3 || clickCounter===9) {
         } else {
             p2Audio.play();
+        }
+        if(clickCounter===9 && playerTwoScore != 3) {
+            whoWonDisplay.innerText = `It's a Tie!`
+            whoWonDisplay.style.display = 'block'
+            resetButton.style.display = 'block'
+            startGameButton.style.display = 'none'
+            tieAudio.play()
+            return
         }
         whosTurnIsIt.innerText = `Player ${playerOneSymbol}'s turn`
         event.target.removeEventListener(('mouseenter'), mouseEnter)
